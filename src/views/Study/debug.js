@@ -1,5 +1,5 @@
-import LinkedList from "./data-structures-algorithms/LinkedList/LinkedList";
-import DoublyLinkedList from "./data-structures-algorithms/LinkedList/DoublyLinkedList";
+import LinkedList from "./data-structures/LinkedList/LinkedList";
+import DoublyLinkedList from "./data-structures/LinkedList/DoublyLinkedList";
 
 console.log("----------------------debug start----------------------");
 
