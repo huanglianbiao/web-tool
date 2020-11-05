@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Web Tool.</title>
+</head>
+<body>
+<h1>Web Tool.</h1>
+<h3>《JavaScript设计模式与开发实践》学习笔记</h3>
+
+<button id="btn">test</button>
+<h4>Design Mode.</h4>
+<button id="loginBtn">Login</button>
+<button id="post">POST</button>
+<hr>
+<button id="pub">发布消息</button>
+<button id="unSub">取消订阅</button>
+<hr>
+<button id="cmd">执行命令</button>
+<button id="marcoCmd">执行宏命令</button>
+<button id="undo">undo</button>
+<button id="redo">redo</button>
+
+<script src="./design-mode/Strategy.js"></script>
+<script src="./design-mode/Proxy.js"></script>
+<script src="./design-mode/Iterator.js"></script>
+<script src="./design-mode/Decorator.js"></script>
+<script src="./数据结构与算法/Array.js"></script>
+<script type="module">
+  import {throttle, throttle2, debounce, timeChunk, addEvent, $el} from './utils.js';
+  import {singleton} from './design-mode/Singleton.js';
+  import PubSub from './design-mode/PubSub.js';
+  import Command, {MarcoCommand} from './design-mode/Command.js';
+
+  const btn = document.getElementById('btn');
+
+  document.addEventListener('mousemove', debounce(function () {
+    console.log(1);
+  }), 500, true);
+
+  const arr = [];
+  for (let i = 0; i < 500; i++) {
+    arr.push(i);
+    // render(i)
+  }
+  timeChunk(arr, render, 10)();
+
+  function render(n) {
+    // console.log(`<div class="div-${n}">${n}</div>`)
+  }
+
+
+  function test() {
+    // console.log("test~");
+  }
+
+  addEvent(document, 'click', test)
+
+  btn.onclick = function () {
+    // addEvent(btn, "mousemove", test);
+  }
+
+  console.log(singleton);
+
+  PubSub.subscribe('pub-sub-test', log)
+
+  function log(msg) {
+    console.log(msg);
+  }
+
+  document.getElementById('pub').onclick = () => {
+    PubSub.publish('pub-sub-test', 'pub-sub-test')
+  }
+
+  document.getElementById('unSub').onclick = () => {
+    PubSub.unsubscribe('pub-sub-test', log);
+  }
+  /*
+	* ****************************************************
+												 命令模式
+	* ****************************************************
+	* */
+  let step = 0;
+  const stepCommand = {
+    execute: () => {
+      step++;
+      log(`Command step: ${step}`);
+    },
+    unExecute: () => {
+      step--;
+      log(`Command step: ${step}`);
+    }
+  }
+
+  let cmd = new Command();
+
+  $el('#cmd').onclick = function () {
+    cmd.execute(stepCommand);
+  }
+  $el('#undo').onclick = function () {
+    cmd.undo();
+  }
+  $el('#redo').onclick = function () {
+    cmd.redo();
+  }
+
+  const openDoorCommand = {
+    execute: () => {
+      log('开门~~~')
+    }
+  }
+
+  const marcoCmd = new MarcoCommand();
+  marcoCmd.add(stepCommand);
+  marcoCmd.add(openDoorCommand);
+
+  $el('#marcoCmd').onclick = function () {
+    marcoCmd.execute();
+  }
+
+</script>
+</body>
+</html>
