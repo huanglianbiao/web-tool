@@ -1,21 +1,26 @@
-import { DoublyNode } from "../models/linked-list-models";
+import DoublyLinkedList from "./DoublyLinkedList";
 import { defaultEquals } from "../utils";
-import LinkedList from "./LinkedList";
+import { DoublyNode } from "@views/Study/data-structures/models/linked-list-models";
 
-export default class DoublyLinkedList extends LinkedList {
+export default class DoublyCircularLinkedList extends DoublyLinkedList {
   constructor(equalsFn = defaultEquals) {
     super(equalsFn);
-    this.tail = undefined; // 尾部
   }
 
   push(item) {
     const node = new DoublyNode(item);
+
     if (!this.head) {
       this.head = node;
     } else {
-      this.tail.next = node;
-      node.prev = this.tail;
+      const lastNode = this.tail;
+      lastNode.next = node;
+      node.prev = lastNode;
+
+      node.next = this.head;
+      this.head.prev = node;
     }
+
     this.tail = node;
     this.count++;
   }
@@ -28,18 +33,23 @@ export default class DoublyLinkedList extends LinkedList {
 
     if (index === 0) {
       if (!this.head) {
-        this.head = node;
         this.tail = node;
       } else {
         const currNode = this.head;
         currNode.prev = node;
         node.next = currNode;
-        this.head = node;
+
+        node.prev = this.tail;
+        this.tail.next = node;
       }
+      this.head = node;
     } else if (index === this.count) {
       this.tail.next = node;
       node.prev = this.tail;
       this.tail = node;
+
+      this.tail.next = this.head;
+      this.head.prev = node;
     } else {
       const prevNode = this.getNodeByIndex(index - 1);
       const currNode = prevNode.next;
@@ -67,12 +77,15 @@ export default class DoublyLinkedList extends LinkedList {
         this.tail = undefined;
       } else {
         this.head = currNode.next;
-        this.head.prev = undefined;
+        this.head.prev = this.tail;
+        this.tail.next = this.head;
       }
-    } else if (index === this.count - 1) {
+    } else if (index === this.size() - 1) {
       currNode = this.tail;
       this.tail = currNode.prev;
-      this.tail.next = undefined;
+
+      this.head.prev = this.tail;
+      this.tail.next = this.head;
     } else {
       currNode = this.getNodeByIndex(index);
       const prevNode = currNode.prev;
@@ -83,14 +96,5 @@ export default class DoublyLinkedList extends LinkedList {
 
     this.count--;
     return currNode.item;
-  }
-
-  clear() {
-    super.clear();
-    this.tail = undefined;
-  }
-
-  getTail() {
-    return this.tail;
   }
 }

@@ -1,11 +1,14 @@
 import LinkedList from "./data-structures/LinkedList/LinkedList";
 import DoublyLinkedList from "./data-structures/LinkedList/DoublyLinkedList";
+import CircularLinkedList from "./data-structures/LinkedList/CircularLinkedList";
+import DoublyCircularLinkedList from "./data-structures/LinkedList/DoublyCircularLinkedList";
 
 console.log("----------------------debug start----------------------");
 
 const linkedList = new LinkedList();
-linkedList.push(1);
-linkedList.push(2);
+linkedList.insert(1, 0);
+linkedList.insert(2, 0);
+// linkedList.insert(2);
 
 // console.log(linkedList.insert("a", 3));
 // linkedList.insert(3, 2);
@@ -29,10 +32,34 @@ doublyLinkedList.push("a");
 // console.log(doublyLinkedList.getHead());
 
 // console.log(doublyLinkedList.removeByIndex(1));
-console.log(doublyLinkedList.remove("1"));
+// console.log(doublyLinkedList.remove("1"));
+//
+// console.log(doublyLinkedList.getHead());
+// console.log("size: ", doublyLinkedList.size());
+// console.log("tail: ", doublyLinkedList.getTail());
 
-console.log(doublyLinkedList.getHead());
-console.log("size: ", doublyLinkedList.size());
-console.log("tail: ", doublyLinkedList.getTail());
+const circularLinkedList = new CircularLinkedList();
+circularLinkedList.push(1);
+circularLinkedList.push(2);
+circularLinkedList.push(3);
+// circularLinkedList.insert("a", 0);
+// circularLinkedList.insert("b", 3);
+circularLinkedList.removeByIndex(0);
+circularLinkedList.remove(2);
+// console.log(circularLinkedList.getHead());
+
+const doublyCircularLinkedList = new DoublyCircularLinkedList();
+doublyCircularLinkedList.push(1);
+doublyCircularLinkedList.push(2);
+doublyCircularLinkedList.push(3);
+doublyCircularLinkedList.push("a");
+
+// doublyCircularLinkedList.insert("a", 3);
+// doublyCircularLinkedList.insert("b", 4);
+// console.log(doublyCircularLinkedList.getHead());
+// console.log(doublyCircularLinkedList.removeByIndex(3));
+console.log(doublyCircularLinkedList.remove(3));
+console.log(doublyCircularLinkedList.getHead());
+console.log(doublyCircularLinkedList.getTail());
 
 console.log("----------------------debug end------------------------");
