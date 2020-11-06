@@ -2,6 +2,7 @@ import LinkedList from "./data-structures/LinkedList/LinkedList";
 import DoublyLinkedList from "./data-structures/LinkedList/DoublyLinkedList";
 import CircularLinkedList from "./data-structures/LinkedList/CircularLinkedList";
 import DoublyCircularLinkedList from "./data-structures/LinkedList/DoublyCircularLinkedList";
+import SortedLinkedList from "./data-structures/LinkedList/SortedLinkedList";
 
 console.log("----------------------debug start----------------------");
 
@@ -58,8 +59,18 @@ doublyCircularLinkedList.push("a");
 // doublyCircularLinkedList.insert("b", 4);
 // console.log(doublyCircularLinkedList.getHead());
 // console.log(doublyCircularLinkedList.removeByIndex(3));
-console.log(doublyCircularLinkedList.remove(3));
-console.log(doublyCircularLinkedList.getHead());
-console.log(doublyCircularLinkedList.getTail());
+// console.log(doublyCircularLinkedList.remove(3));
+// console.log(doublyCircularLinkedList.getHead());
+// console.log(doublyCircularLinkedList.getTail());
+
+const sortedLinkedList = new SortedLinkedList();
+
+console.log(sortedLinkedList.insert(5));
+console.log(sortedLinkedList.insert(4));
+console.log(sortedLinkedList.insert(7));
+console.log(sortedLinkedList.insert(6));
+console.log(sortedLinkedList.push(6));
+console.log(sortedLinkedList.push(0));
+console.log(sortedLinkedList.getHead());
 
 console.log("----------------------debug end------------------------");
