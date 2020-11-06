@@ -3,6 +3,7 @@ import DoublyLinkedList from "./data-structures/LinkedList/DoublyLinkedList";
 import CircularLinkedList from "./data-structures/LinkedList/CircularLinkedList";
 import DoublyCircularLinkedList from "./data-structures/LinkedList/DoublyCircularLinkedList";
 import SortedLinkedList from "./data-structures/LinkedList/SortedLinkedList";
+import StackLinkedList from "./data-structures/LinkedList/StackLinkedList";
 
 console.log("----------------------debug start----------------------");
 
@@ -65,12 +66,23 @@ doublyCircularLinkedList.push("a");
 
 const sortedLinkedList = new SortedLinkedList();
 
-console.log(sortedLinkedList.insert(5));
-console.log(sortedLinkedList.insert(4));
-console.log(sortedLinkedList.insert(7));
-console.log(sortedLinkedList.insert(6));
-console.log(sortedLinkedList.push(6));
-console.log(sortedLinkedList.push(0));
-console.log(sortedLinkedList.getHead());
+// console.log(sortedLinkedList.insert(5));
+// console.log(sortedLinkedList.insert(4));
+// console.log(sortedLinkedList.insert(7));
+// console.log(sortedLinkedList.insert(6));
+// console.log(sortedLinkedList.push(6));
+// console.log(sortedLinkedList.push(0));
+// console.log(sortedLinkedList.getHead());
+
+const stackLinkedList = new StackLinkedList();
+
+stackLinkedList.push(1);
+stackLinkedList.push(2);
+stackLinkedList.push(3);
+
+console.log(stackLinkedList.pop());
+console.log(stackLinkedList.peak());
+console.log(stackLinkedList.clear());
+console.log(stackLinkedList.size());
 
 console.log("----------------------debug end------------------------");
