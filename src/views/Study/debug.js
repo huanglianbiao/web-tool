@@ -4,6 +4,8 @@ import CircularLinkedList from "./data-structures/LinkedList/CircularLinkedList"
 import DoublyCircularLinkedList from "./data-structures/LinkedList/DoublyCircularLinkedList";
 import SortedLinkedList from "./data-structures/LinkedList/SortedLinkedList";
 import StackLinkedList from "./data-structures/LinkedList/StackLinkedList";
+import Set from "./data-structures/Set/Set";
+import Dictionary from "./data-structures/Dictionary/Dictionary";
 
 console.log("----------------------debug start----------------------");
 
@@ -80,9 +82,47 @@ stackLinkedList.push(1);
 stackLinkedList.push(2);
 stackLinkedList.push(3);
 
-console.log(stackLinkedList.pop());
-console.log(stackLinkedList.peak());
-console.log(stackLinkedList.clear());
-console.log(stackLinkedList.size());
+// console.log(stackLinkedList.pop());
+// console.log(stackLinkedList.peak());
+// console.log(stackLinkedList.clear());
+// console.log(stackLinkedList.size());
+
+const set = new Set();
+
+set.add(1);
+set.add("2");
+set.add(1);
+set.delete(1);
+set.clear();
+
+// console.log(set.items, set.size());
+
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [4, 5, 6, 7, 8];
+const arr3 = [1, 2, 3, 4, 5, 6];
+
+const set1 = new Set(...arr1);
+const set2 = new Set(...arr2);
+const set3 = new Set(...arr3);
+
+// console.log("并集：", set1.union(set2).values());
+// console.log("交集：", set1.intersection(set2).values());
+// console.log("差集：", set1.difference(set2).values());
+// console.log("子集：", set1.isSubset(set2));
+// console.log("子集：", set1.isSubset(set3));
+
+const dictionary = new Dictionary();
+
+dictionary.set("a", 1);
+dictionary.set("b", 2);
+dictionary.set("a", 3);
+
+dictionary.forEach((value, key) => {
+  console.log(value, key, 111);
+});
+
+console.log(dictionary.keys());
+console.log(dictionary.values());
+console.log(dictionary.size());
 
 console.log("----------------------debug end------------------------");

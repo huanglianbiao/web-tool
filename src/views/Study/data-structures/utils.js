@@ -15,4 +15,24 @@ const defaultCompare = (a, b) => {
   return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
 };
 
-export { defaultEquals, Compare, defaultCompare };
+const actualType = value => {
+  return Object.prototype.toString.call(value).slice(8, -1);
+};
+
+const isInvalidValue = value => {
+  return actualType(value) === "Null" || actualType(value) === "Undefined";
+};
+
+const defaultToStr = value => {
+  if (isInvalidValue(value)) {
+    return actualType(value).toUpperCase();
+  }
+
+  if (actualType(value) === "Object" || actualType(value) === "Array") {
+    return JSON.stringify(value);
+  }
+
+  return value.toString();
+};
+
+export { defaultEquals, Compare, defaultCompare, actualType, isInvalidValue, defaultToStr };
