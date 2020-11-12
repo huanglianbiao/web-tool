@@ -1,3 +1,7 @@
+/*
+ * 利用LinkedList实现栈，即StackLinkedList类
+ * */
+
 import LinkedList from "./LinkedList";
 
 export default class StackLinkedList {

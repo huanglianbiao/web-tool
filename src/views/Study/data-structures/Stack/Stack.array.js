@@ -1,3 +1,7 @@
+/*
+ * 栈（利用数组方式实现）
+ * */
+
 class Stack {
   constructor() {
     this.items = [];

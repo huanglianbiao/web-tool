@@ -1,3 +1,7 @@
+/*
+ * 双向链表
+ * */
+
 import { DoublyNode } from "../models/linked-list-models";
 import { defaultEquals } from "../utils";
 import LinkedList from "./LinkedList";

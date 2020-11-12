@@ -1,3 +1,7 @@
+/*
+ * 队列
+ * */
+
 class Deque {
   constructor() {
     this.lowestCount = 0;

@@ -1,47 +1,48 @@
 /*
- * 字典
+ * 散列表
  * */
 
-import { defaultToStr, isInvalidValue } from "../utils";
+import { defaultToStr, loseloseHashCode, isInvalidValue, DJB2HashCode } from "../utils";
 import { ValuePair } from "../models/table-models";
 
-export default class Dictionary {
+export default class HashTable {
   constructor(toStrFn = defaultToStr) {
     this.toStrFn = toStrFn;
     this.table = {};
   }
 
-  hasKey(key) {
-    const value = this.table[this.toStrFn(key)];
-    return !isInvalidValue(value);
+  hashCode(key) {
+    // return loseloseHashCode(key, this.toStrFn) % 37;
+    // 使用hash值对任意一个数取余的目的是，避免数值多大超过安全范围。
+    // 但是，却会导致有可能余数相同的情况，造成hash冲突。
+
+    // 解决hash碰撞
+    return DJB2HashCode(key, this.toStrFn);
   }
 
-  // 新增、或更新已有值
-  set(key, value) {
+  put(key, value) {
     if (isInvalidValue(key) && isInvalidValue(value)) {
       return false;
     }
 
-    const tableKey = this.toStrFn(key);
-    this.table[tableKey] = new ValuePair(key, value);
-    return true;
-  }
-
-  remove(key) {
-    if (isInvalidValue(key)) {
-      return false;
-    }
-
-    delete this.table[this.toStrFn(key)];
+    const position = this.hashCode(key);
+    this.table[position] = new ValuePair(key, value);
     return true;
   }
 
   get(key) {
-    if (!this.hasKey(key)) {
-      return undefined;
-    }
+    return this.table[this.hashCode(key)];
+  }
 
-    return this.table[this.toStrFn(key)].value;
+  remove(key) {
+    const hash = this.hashCode(key);
+    const valuePair = this.table[hash];
+
+    if (!isInvalidValue(valuePair)) {
+      delete this.table[hash];
+      return true;
+    }
+    return false;
   }
 
   keyValues() {

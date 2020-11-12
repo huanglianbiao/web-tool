@@ -1,3 +1,7 @@
+/*
+ * 集合
+ * */
+
 export default class Set {
   constructor(...args) {
     this.items = {};

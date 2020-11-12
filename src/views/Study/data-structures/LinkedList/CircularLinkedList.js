@@ -1,3 +1,7 @@
+/*
+ * 循环链表
+ * */
+
 import LinkedList from "./LinkedList";
 import { defaultEquals } from "../utils";
 import { Node } from "@views/Study/data-structures/models/linked-list-models";

@@ -1,3 +1,7 @@
+/*
+ * 双向循环链表
+ * */
+
 import DoublyLinkedList from "./DoublyLinkedList";
 import { defaultEquals } from "../utils";
 import { DoublyNode } from "@views/Study/data-structures/models/linked-list-models";

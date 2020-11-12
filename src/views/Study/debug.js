@@ -6,6 +6,9 @@ import SortedLinkedList from "./data-structures/LinkedList/SortedLinkedList";
 import StackLinkedList from "./data-structures/LinkedList/StackLinkedList";
 import Set from "./data-structures/Set/Set";
 import Dictionary from "./data-structures/Dictionary/Dictionary";
+import HashTable from "./data-structures/HashTable/HashTable";
+import HashTableSplitLink from "./data-structures/HashTable/HashTableSplitLink";
+import HashTableLinearProbing from "./data-structures/HashTable/HashTableLinearProbing";
 
 console.log("----------------------debug start----------------------");
 
@@ -117,12 +120,92 @@ dictionary.set("a", 1);
 dictionary.set("b", 2);
 dictionary.set("a", 3);
 
-dictionary.forEach((value, key) => {
-  console.log(value, key, 111);
-});
+// dictionary.forEach((value, key) => {
+//   console.log(value, key, 111);
+// });
+//
+// console.log(dictionary.keys());
+// console.log(dictionary.values());
+// console.log(dictionary.size());
+console.log("--------------------------HashTable-----------------------------");
+const hashTable = new HashTable();
+const obj = { a: 1 };
+const fn = function() {
+  const a = 0;
+  console.log(a);
+};
+hashTable.put(1, 1);
+hashTable.put(294, 294);
+hashTable.put("abc", "ABC");
+hashTable.put("acb", "ACB");
+hashTable.put("bac", "BAC");
+hashTable.put("bca", "BCA");
+hashTable.put("cab", "CAB");
+hashTable.put("cba", "CBA");
+hashTable.put(999900, "300");
+hashTable.put(obj, "OBJECT");
+hashTable.put(fn, "FUNCTION");
+hashTable.put(undefined, "undefined");
 
-console.log(dictionary.keys());
-console.log(dictionary.values());
-console.log(dictionary.size());
+// console.log(hashTable.get(1));
+// console.log(hashTable.get("ab"));
+// console.log(hashTable.get("ba"));
+// console.log(hashTable.get(obj));
+// console.log(hashTable.get(fn));
+// console.log(hashTable.get());
+console.log(hashTable.table);
+
+console.log("--------------------------HashTableSplitLink-----------------------------");
+const hashTableSplitLink = new HashTableSplitLink();
+hashTableSplitLink.put(1, 1);
+hashTableSplitLink.put("ab", "AB");
+hashTableSplitLink.put("ba", "BA");
+hashTableSplitLink.put(obj, "OBJECT");
+hashTableSplitLink.put(fn, "FUNCTION");
+hashTableSplitLink.put(undefined, "undefined");
+
+console.log(hashTableSplitLink.get(1));
+console.log(hashTableSplitLink.get("ab"));
+console.log(hashTableSplitLink.get("ba"));
+console.log(hashTableSplitLink.get(obj));
+console.log(hashTableSplitLink.get(fn));
+console.log(hashTableSplitLink.get());
+// console.log(hashTableSplitLink.keyValues());
+// console.log(hashTableSplitLink.keys());
+// console.log(hashTableSplitLink.values());
+
+console.log("--------------------------HashTableLinearProbing-----------------------------");
+const hashTableLinearProbing = new HashTableLinearProbing();
+hashTableLinearProbing.put(1, 1);
+hashTableLinearProbing.put(294, 294);
+hashTableLinearProbing.put("abc", "ABC");
+hashTableLinearProbing.put("acb", "ACB");
+hashTableLinearProbing.put("bac", "BAC");
+hashTableLinearProbing.put("bca", "BCA");
+hashTableLinearProbing.put("cab", "CAB");
+hashTableLinearProbing.put("cba", "CBA");
+hashTableLinearProbing.put(999900, "300");
+hashTableLinearProbing.put(obj, "OBJECT");
+hashTableLinearProbing.put(fn, "FUNCTION");
+hashTableLinearProbing.put(undefined, "undefined");
+
+console.log(hashTableLinearProbing.get(1));
+console.log(hashTableLinearProbing.get(294));
+console.log(hashTableLinearProbing.get("abc"));
+console.log(hashTableLinearProbing.get("acb"));
+console.log(hashTableLinearProbing.get("bac"));
+console.log(hashTableLinearProbing.get("bca"));
+console.log(hashTableLinearProbing.get("cab"));
+console.log(hashTableLinearProbing.get("cba"));
+console.log(hashTableLinearProbing.get(obj));
+console.log(hashTableLinearProbing.get(fn));
+console.log(hashTableLinearProbing.get());
+console.log(hashTableLinearProbing.get(300));
+
+console.log(hashTableLinearProbing.remove("abc"));
+// console.log(hashTableLinearProbing.get("acb"));
+
+console.log(hashTableLinearProbing.keyValues());
+console.log(hashTableLinearProbing.values());
 
 console.log("----------------------debug end------------------------");

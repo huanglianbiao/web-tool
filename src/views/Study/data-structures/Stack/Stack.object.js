@@ -1,3 +1,7 @@
+/*
+ * 栈（利用对象方式实现）
+ * */
+
 class Stack {
   constructor() {
     this.items = {};

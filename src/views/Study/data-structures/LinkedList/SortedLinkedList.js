@@ -1,3 +1,7 @@
+/*
+ * 有序链表
+ * */
+
 import LinkedList from "./LinkedList";
 import { defaultEquals, defaultCompare, Compare } from "../utils";
 
