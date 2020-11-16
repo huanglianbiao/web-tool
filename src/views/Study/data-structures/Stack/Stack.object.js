@@ -1,16 +1,17 @@
 /*
  * 栈（利用对象方式实现）
  * */
+const items = Symbol("items");
 
-class Stack {
+export default class Stack {
   constructor() {
-    this.items = {};
+    this[items] = {};
     this.count = 0;
   }
 
   push(...item) {
     [...item].forEach(val => {
-      this.items[this.count] = val;
+      this[items][this.count] = val;
       this.count++;
     });
   }
@@ -22,13 +23,13 @@ class Stack {
 
     this.count--;
 
-    const last = this.items[this.count];
-    delete this.items[this.count];
+    const last = this[items][this.count];
+    delete this[items][this.count];
     return last;
   }
   // 栈顶元素
   peak() {
-    return this.items[this.count - 1];
+    return this[items][this.count - 1];
   }
 
   isEmpty() {
@@ -36,7 +37,7 @@ class Stack {
   }
 
   clear() {
-    this.items = {};
+    this[items] = {};
     this.count = 0;
   }
 
@@ -44,10 +45,3 @@ class Stack {
     return this.count;
   }
 }
-
-const stack = new Stack();
-stack.push(1, 2);
-stack.pop();
-console.log(stack.peak());
-
-console.log(stack.items, stack.size());

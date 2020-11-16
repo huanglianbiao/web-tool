@@ -1,3 +1,4 @@
+import Stack from "./data-structures/Stack/Stack.object";
 import LinkedList from "./data-structures/LinkedList/LinkedList";
 import DoublyLinkedList from "./data-structures/LinkedList/DoublyLinkedList";
 import CircularLinkedList from "./data-structures/LinkedList/CircularLinkedList";
@@ -9,9 +10,17 @@ import Dictionary from "./data-structures/Dictionary/Dictionary";
 import HashTable from "./data-structures/HashTable/HashTable";
 import HashTableSplitLink from "./data-structures/HashTable/HashTableSplitLink";
 import HashTableLinearProbing from "./data-structures/HashTable/HashTableLinearProbing";
+import "./ECMAScript";
+import "./algorithms";
 
 console.log("----------------------debug start----------------------");
+console.log("--------------------------Stack-----------------------------");
+const stack = new Stack();
+stack.push("a", "b");
 
+console.log(stack.items, stack.size());
+
+console.log("--------------------------LinkedList-----------------------------");
 const linkedList = new LinkedList();
 linkedList.insert(1, 0);
 linkedList.insert(2, 0);
