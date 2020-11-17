@@ -64,9 +64,9 @@ console.time("fibonacciIterator");
 console.log("fibonacci: ", fibonacciIterator(1111));
 console.timeEnd("fibonacciIterator");
 
-// console.time("fibonacci");
-// console.log("fibonacci: ", fibonacci(111));
-// console.timeEnd("fibonacci");
+console.time("fibonacci");
+console.log("fibonacci: ", fibonacci(10));
+console.timeEnd("fibonacci");
 
 console.time("fibonacciCache");
 console.log("fibonacci: ", fibonacciCache(1111));
