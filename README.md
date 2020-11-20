@@ -5,4 +5,4 @@
 + 设计模式
 + 数据结构与算法
 
-[web-tool](https://gitee.com/huanglianbiao666/web-tool)
+[笔记地址](https://www.yuque.com/huanglianbiao/web)
