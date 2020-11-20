@@ -12,7 +12,7 @@ import HashTableSplitLink from "./data-structures/HashTable/HashTableSplitLink";
 import HashTableLinearProbing from "./data-structures/HashTable/HashTableLinearProbing";
 import "./ECMAScript";
 import "./algorithms";
-import "./data-structures/Tree";
+import "./data-structures";
 
 console.log("----------------------debug start----------------------");
 console.log("--------------------------Stack-----------------------------");

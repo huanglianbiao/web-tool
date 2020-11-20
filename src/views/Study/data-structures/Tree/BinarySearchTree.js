@@ -12,27 +12,22 @@ export default class BinarySearchTree {
   }
 
   insert(item) {
-    if (isInvalidValue(this.root)) {
-      this.root = new Node(item);
-    } else {
-      this.insertNode(this.root, item);
-    }
+    this.root = this.insertNode(this.root, item);
   }
 
   insertNode(node, item) {
-    if (this.compareFn(item, node.item) === Compare.LESS_THAN) {
-      if (isInvalidValue(node.left)) {
-        node.left = new Node(item);
-      } else {
-        this.insertNode(node.left, item);
-      }
-    } else {
-      if (isInvalidValue(node.right)) {
-        node.right = new Node(item);
-      } else {
-        this.insertNode(node.right, item);
-      }
+    if (isInvalidValue(node)) {
+      return new Node(item);
     }
+
+    if (this.compareFn(item, node.item) === Compare.LESS_THAN) {
+      node.left = this.insertNode(node.left, item);
+    } else if (this.compareFn(item, node.item) === Compare.BIGGER_THAN) {
+      node.right = this.insertNode(node.right, item);
+    } else {
+      return node; // 已存在
+    }
+    return node;
   }
 
   // 中序遍历：从小到大顺序访问节点

@@ -61,6 +61,14 @@ const DJB2HashCode = (key, toStrFn) => {
   return hash % 1013;
 };
 
+const BalanceFactor = {
+  UNBALANCED_RIGHT: Symbol("unbalance-right"),
+  SLIGHTLY_UNBALANCED_RIGHT: Symbol("slightly-unbalanced_right"),
+  BALANCED: Symbol("balanced"),
+  SLIGHTLY_UNBALANCED_LEFT: Symbol("slightly-unbalanced-left"),
+  UNBALANCED_LEFT: Symbol("unbalanced-left")
+};
+
 export {
   defaultEquals,
   Compare,
@@ -69,5 +77,6 @@ export {
   isInvalidValue,
   defaultToStr,
   loseloseHashCode,
-  DJB2HashCode
+  DJB2HashCode,
+  BalanceFactor
 };
