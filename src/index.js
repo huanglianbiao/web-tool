@@ -6,7 +6,7 @@ import "normalize.css";
 import "@src/assets/css/markdown.css";
 import "./assets/css/global.less";
 import "./plugins";
-import "@views/Study/debug";
+import "@study/debug";
 
 new Vue({
   el: "#app",

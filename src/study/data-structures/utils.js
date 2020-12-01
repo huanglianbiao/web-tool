@@ -15,6 +15,10 @@ const defaultCompare = (a, b) => {
   return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
 };
 
+const reverseCompare = (a, b) => {
+  return defaultCompare(b, a);
+};
+
 const actualType = value => {
   return Object.prototype.toString.call(value).slice(8, -1);
 };
@@ -69,14 +73,21 @@ const BalanceFactor = {
   UNBALANCED_LEFT: Symbol("unbalanced-left")
 };
 
+// 交换位置
+const swap = (array, idx, idx2) => {
+  [array[idx], array[idx2]] = [array[idx2], array[idx]];
+};
+
 export {
-  defaultEquals,
   Compare,
+  BalanceFactor,
+  defaultEquals,
   defaultCompare,
+  reverseCompare,
   actualType,
   isInvalidValue,
   defaultToStr,
   loseloseHashCode,
   DJB2HashCode,
-  BalanceFactor
+  swap
 };

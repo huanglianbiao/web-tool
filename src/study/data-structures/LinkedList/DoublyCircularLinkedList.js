@@ -4,7 +4,7 @@
 
 import DoublyLinkedList from "./DoublyLinkedList";
 import { defaultEquals } from "../utils";
-import { DoublyNode } from "@views/Study/data-structures/models/linked-list-models";
+import { DoublyNode } from "@study/data-structures/models/linked-list-models";
 
 export default class DoublyCircularLinkedList extends DoublyLinkedList {
   constructor(equalsFn = defaultEquals) {

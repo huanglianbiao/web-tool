@@ -10,6 +10,7 @@ const srcPath = path.resolve(__dirname, "../src");
 const componentsPath = path.resolve(__dirname, "../src/components");
 const viewsPath = path.resolve(__dirname, "../src/views");
 const utilsPath = path.resolve(__dirname, "../src/utils");
+const studyPath = path.resolve(__dirname, "../src/study");
 
 module.exports = {
   entry: entryPath,
@@ -20,7 +21,8 @@ module.exports = {
       "@src": srcPath,
       "@components": componentsPath,
       "@views": viewsPath,
-      "@utils": utilsPath
+      "@utils": utilsPath,
+      "@study": studyPath
     }
   },
   module: {

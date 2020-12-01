@@ -4,7 +4,7 @@
 
 import LinkedList from "./LinkedList";
 import { defaultEquals } from "../utils";
-import { Node } from "@views/Study/data-structures/models/linked-list-models";
+import { Node } from "@study/data-structures/models/linked-list-models";
 
 export default class CircularLinkedList extends LinkedList {
   constructor(equalsFn = defaultEquals) {

@@ -17,7 +17,7 @@ const routes = [
       {
         name: "markdown",
         path: "markdown",
-        component: () => import("@src/views/Study/MarkdownGrammar.md")
+        component: () => import("@src/views/MarkdownGrammar.md")
       }
     ]
   },
