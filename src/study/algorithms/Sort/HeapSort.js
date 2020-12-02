@@ -32,7 +32,10 @@ export default function heapSort(array, compareFn = defaultCompare) {
   let heapSize = array.length;
   buildMaxHeap(array, compareFn);
   while (heapSize > 1) {
+    // 交换最大值和最后一位的位置
     swap(array, 0, --heapSize);
+
+    // 将数组length为heapSize的部分处理为最大二叉堆
     heapify(array, 0, heapSize, compareFn);
   }
   return array;
