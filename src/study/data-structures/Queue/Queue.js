@@ -2,7 +2,7 @@
  * 双端队列
  * */
 
-class Queue {
+export default class Queue {
   constructor() {
     this.lowestCount = 0; // 第一个元素的index
     this.count = 0;

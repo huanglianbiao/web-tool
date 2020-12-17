@@ -78,9 +78,16 @@ const swap = (array, idx, idx2) => {
   [array[idx], array[idx2]] = [array[idx2], array[idx]];
 };
 
+const Colors = {
+  WHITE: Symbol("white"),
+  GRAY: Symbol("gray"),
+  BLACK: Symbol("BLACK")
+};
+
 export {
   Compare,
   BalanceFactor,
+  Colors,
   defaultEquals,
   defaultCompare,
   reverseCompare,
